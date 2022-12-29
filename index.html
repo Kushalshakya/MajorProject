@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="E-Library Management System">
+    <meta name="keywords" content="HTML, CSS, JavaScript, PHP, MYSQL">
+    <title>E-Library</title>
+    <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div id="loader"></div>
+    <a href="#">
+        <i class="fa fa-angle-double-up fa-3x" id="arrow"></i>
+    </a>
+
+    <!-- Navigation Header for Mobiles & Tablets -->
+    <div id="header-nav">
+        <div class="header-nav-cover">
+            <h1>E-Library</h1>
+            <div class="lists">
+                <ul class="m-nav">
+                    <li><a href="src/books.html">Book</a></li>
+                    <li><a href="#">Showcase</a></li>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="src/curriculum.html">Curriculum</a></li>
+                    <li><a href="#">Study</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div id="header">
+            <div class="logo">
+                <h1>E-Library</h1>
+            </div>
+            <div class="lists">
+                <ul class="midscreen-display">
+                    <li><a href="src/books.html">Book</a></li>
+                    <li><a href="#">Showcase</a></li>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="src/curriculum.html">Curriculum</a></li>
+                    <li><a href="#">Study</a></li>
+                </ul>
+            </div>
+            <div class="database">
+                <button class="btnlg">Login</button>
+                <button class="hamburger">☰</button>
+            </div>
+        </div>
+        <div class="login_page lg">
+            <div class="login_cover">
+                <form action="" method="post">
+                    <div class="top">
+                        <h1>How would you like to continue?</h1>
+                        <i class="fa fa-close close"></i>
+                    </div>
+                    <div class="mid">
+                        <div class="user">
+                            <input type="email" placeholder="Email Address" spellcheck="false" autocomplete="off" required>
+                        </div>
+                        <div class="pass">
+                            <input type="password" placeholder="Password" spellcheck="false" autocomplete="off" required>
+                        </div>
+                    </div>
+                    <div class="authorization">
+                        <div class="a1">
+                            <input type="checkbox">
+                            <span>Keep me signed in?</span>
+                        </div>
+                        <div class="a2">
+                            <h3>Forgot Password?</h3>
+                        </div>
+                    </div>
+                    <div class="login_btn">
+                        <button><a href="#">Log in</a></button>
+                        <h3>Don't have an account? <span class="login_side"><a href="#" style="color : #1354A9;">Sign Up</a></span></h3>
+                    </div>
+                    <div class="guest">
+                        <a href="src/admin.html"><h2>Continue as Admin</h2></a>
+                    </div>
+                    <div class="login_text">
+                        <h2>New User?</h2><br>
+                        <h3>By logging in to your account on an e-library, you can gain access to a wealth of knowledge and information that can help you with your studies, research, or personal interests.</h3>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="signup_page ss">
+            <div class="signup_cover">
+                <form action="" method="post">
+                    <div class="top">
+                        <h1>Create an account</h1>
+                        <i class="fa fa-close close_register"></i>
+                    </div>
+                    <div class="mid">
+                        <div class="user">
+                            <input type="text" placeholder="Username" spellcheck="false" autocomplete="off" required>
+                        </div>
+                        <div class="phonenumber">
+                            <input type="number" placeholder="Phone Number" spellcheck="false" autocomplete="off" required>
+                        </div>
+                        <div class="email">
+                            <input type="email" placeholder="Email Address" spellcheck="false" autocomplete="off" required>
+                        </div>
+                        <div class="dob">
+                            <input type="date" spellcheck="false" autocomplete="off" required>
+                        </div>
+                        <div class="pass">
+                            <input type="password" placeholder="Password" spellcheck="false" autocomplete="off" required>
+                        </div>
+                    </div>
+                    <div class="signup_btn">
+                        <button><a href="#">Register</a></button>
+                        <h2 class="cypertext"></h2>
+                        <h4 style="color:red;cursor:pointer;" class="generate">Generate a secured password</h4>
+                        <h3>Already have an account? <span class="back_side"><a href="#" style="color : #1354A9;">Log in</a></span></h3>
+                    </div>
+                    <div class="guest">
+                        <a href="src/admin.html"><h2>Continue as Admin</h2></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <div class="main-cover">
+            <div class="image-slider">
+                <div class="image-slider-cover">
+                    <img src="image/MajorProjectBackground1.png" class="images-sld">
+                    <img src="image/MajorProjectBackground2.png" class="images-sld">
+                    <img src="image/MajorProjectBackground3.png" class="images-sld">
+                </div>
+                <i class="fa fa-angle-right main-next"></i>
+                <i class="fa fa-angle-left main-prev"></i>
+            </div>
+        </div>
+    </div>
+    <div id="section">
+
+    </div>
+
+    
+    <!-- Feature -->
+    <div id="feature-cover">
+        <div id="features">
+            <div class="feature-header reveal">
+                <button>Features</button>
+            </div>
+            <div class="feature-title reveal">
+                <h2>
+                    Our Features
+                </h2>
+            </div>
+            <div class="feature-detail reveal">
+                <h3>We provide No Physical Restrictions with Multiple<br>Access and Easy-to-Use, Scope of Improvement and More Than a Library.</h3>
+            </div>
+            <div class="feature-about reveal">
+                <div class="about-grid1">
+                    <img src="image/feature1.png">
+                    <h4>Book Sharing</h4>
+                    <h5>Managing and Updating the books as per the need.</h5>
+                </div>
+                <div class="about-grid2 reveal">
+                    <img src="image/feature2.png">
+                    <h4>User's Support</h4>
+                    <h5>We Provide Clients the help and find answers to questions as soon as they come up.</h5>
+                </div>
+                <div class="about-grid3 reveal">
+                    <img src="image/feature3.png">
+                    <h4>No Limitation</h4>
+                    <h5>Browse Books Without any Limitation and Restrictions with free of cost.</h5>
+                </div>
+            </div>
+            <div class="feature-quote reveal">
+                <h1>Transform your life through <span>Education</span></h1>
+            </div>
+        </div>
+    </div>
+    
+    <div class="testimonials-cover">
+        <div id="testimonials">
+            <!-- <div class="image">
+                <img src="bxs-message-alt-dots.svg" class="comment">
+            </div> -->
+            <div class="description">
+                <h1>What our users are saying</h1>
+            </div>
+            <div class="testi">
+                <div class="grid1 grid">
+                    <!-- “ ”) in English? -->
+                    <h2>"As a busy college student, the library website has been a lifesaver for me. I can easily search for and reserve books, as well as access online resources for research, I can study efficiently without having to physically go to the library all the time."</h2>
+                    <h3>Emily</h3>
+                </div>
+                <div class="grid2 grid">
+                    <h2>"The library website has made it possible for me to access a wide variety of books and other resources from the comfort of my own home. It's been a great way for me to continue learning and expanding my knowledge, even with a busy schedule."</h2>
+                    <h3>Sarah</h3>
+                </div>
+                <div class="grid3 grid">
+                    <h2>"I've always loved visiting the library to browse the shelves and find new books to read. However, the pandemic made it difficult for me to go out as much as I used to. The library website has been a fantastic resource for me to continue accessing new books and materials."</h2>
+                    <h3>John</h3>
+                </div>
+                <div class="grid4 grid">
+                    <h2>"As a high school student, I often have to complete assignments and projects that require me to access certain resources or materials. The library website has made it so easy for me to find and access the resources I need."</h2>
+                    <h3>Rachel</h3>
+                </div>
+                <div class="grid5 grid">
+                    <h2>"The website is well-organized and easy to navigate, and I've been able to find exactly what I'm looking for every time. It's been a great resource for me, and I'm grateful to have it available."</h2>
+                    <h3>Kyle</h3>
+                </div>
+                <div class="grid6 grid">
+                    <h2>"As a busy professional, I don't always have time to visit the library in person. The library website has made it possible for me to access books, resources, and materials from my office or on the go."</h2>
+                    <h3>Jessica</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="newsletter">
+        <div class="subscribe reveal">
+            <form>
+                <h3>Newsletter</h3>
+                <input type="email" id="email" placeholder="Email" required autocomplete="off" spellcheck="false">
+                <button>SUBSCRIBE</button>
+                <!-- paper-plane -->
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div id="footer">
+            <div class="footer-about">
+                <div class="footer-aboutus">
+                    <h2>About Us</h2>
+                    <ul>
+                        <li>
+                            Developers
+                        </li>
+                        <li>
+                            Community
+                        </li>
+                        <li>
+                            Help and Support
+                        </li>
+                        <li>
+                            Blog
+                        </li>
+                        <li>
+
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-books">
+                    <h2>Books</h2>
+                    <ul>
+                        <li>Energize</li>
+                        <li>FindingYourPassion</li>
+                        <li>HistoricalFiction</li>
+                        <li>Motivation</li>
+                        <li>Parenting</li>
+                        <li>Religion and Spirituality</li>
+                    </ul>
+                </div>
+                <div class="footer-bookss">
+                </div>
+                <div class="footer-socialmedia">
+                    <h2>Stay Connected</h2>
+                    <ul>
+                        <li>
+                            <i class="fa fa-facebook"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-linkedin"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-twitter"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-youtube-play"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-github"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="copyright">
+                <h1>Find an issue with this page? <a href="https://github.com/kushalshakya/majorProject">Fix it on Github</a></h1>
+                <h3>Need help? Email <span>librariansupervisior@gmail.com</span></h3>
+                <div class="policies">
+                    <ul>
+                        <li>Privacy</li>
+                        <li class="side">Use Of Cookies</li>
+                        <li class="side">Website Details</li>
+                        <li class="side">Accessibility</li>
+                        <li class="side">Copyright</li>
+                        <li class="side side-close">Terms Of Use</li>
+                    </ul>
+                </div>
+                <div class="copyright-info">
+                    <h2>&copy; 2022 E-Library. All rights reserved.</h2>
+                </div>
+            </div>
+    </footer>
+    <script src="src/script.js" type="text/javascript"></script>
+</body>
+</html>
