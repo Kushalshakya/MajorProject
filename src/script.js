@@ -62,6 +62,15 @@ function generate(){
     return store
 }
 
+const headerNavEl = document.querySelector('#header-nav')
+const hamBurgerMidScreen = document.querySelector('.hamburger')
+
+hamBurgerMidScreen.addEventListener('click',()=>{
+    headerNavEl.classList.toggle('active')
+})
+
+
+
 // Header
 const header = document.querySelector("#header")
 window.onscroll = function(){   
@@ -70,5 +79,60 @@ window.onscroll = function(){
     }
     else{
         header.style.height = 50 + "px"
+    }
+}
+
+// Image Slider
+const nextEl = document.querySelector('.main-next');
+const prevEl = document.querySelector('.main-prev');
+const imageSliderEl = document.querySelector('.image-slider-cover')
+const imagesEl = document.querySelectorAll('.images-sld')
+
+let imgNum = 1
+let timeout
+
+nextEl.addEventListener('click',()=>{
+    imgNum++
+    clearTimeout(timeout)
+    imageSliderUpdate()
+})
+prevEl.addEventListener('click',()=>{
+    imgNum--
+    clearTimeout(timeout)
+    imageSliderUpdate()
+})
+imageSliderUpdate()
+function imageSliderUpdate(){
+    if(imgNum > imagesEl.length){
+        imgNum = 1
+    }
+    else if(imgNum < 1){
+        imgNum = imagesEl.length
+    }
+    imageSliderEl.style.transform = `translateX(${(imgNum -1) * -1250}px)`
+
+    timeout = setTimeout(()=>{
+        imgNum++
+        imageSliderUpdate()
+    },3000)
+}
+
+
+// Reveling
+window.addEventListener('scroll', reveal);
+
+function reveal(){
+    var reveals = document.querySelectorAll('.reveal');
+    for(var i=0;i<reveals.length;i++){
+        var windowheight = window.innerHeight;
+        var revealtop = reveals[i].getBoundingClientRect().top;
+        var revealpoint = 150;
+
+        if(revealtop < windowheight - revealpoint){
+            reveals[i].classList.add('active');
+        }
+        else{
+            reveals[i].classList.remove('active');
+        }
     }
 }

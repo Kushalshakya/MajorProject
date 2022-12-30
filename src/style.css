@@ -94,6 +94,20 @@ a{
     color : var(--bg-black);
 }
 
+
+#header-nav .user-status{
+    position : absolute;
+    font-size : 10px;
+    bottom : 50px;
+    left : 20px;
+}
+
+@media (min-width : 950px){
+    #header-nav{
+        display : none;
+    }
+    
+}
 /* Header */
 header{
     /* border-bottom : 5px solid #eaBe23; */
@@ -415,4 +429,501 @@ header{
     border : 1px solid #007BFF;
     background-color: #fff;
     color : var(--bg-text);
+}
+
+/* Main Content */
+#main-content{
+    width : 100%;
+    height : 100vh;
+    /* background-color : red; */
+    /* background-image: url('/image/demobginsvg.svg'); */
+    background-image : url('/image/check.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+#main-content .main-cover{
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    height : 90vh;
+}
+#main-content .image-slider{
+    width : 1250px;
+    height : 550px;
+    overflow: hidden;
+    position : relative;
+}
+#main-content .image-slider-cover{
+    position : absolute;
+    display : flex;
+    transition : all .5s ease-in-out;
+}
+#main-content img{
+    width : 1250px;
+    height : 550px;
+    object-fit : cover;
+    object-position: center;
+}
+#main-content .fa{
+    position : absolute;
+    font-size : 35px;
+    color : #808080;
+    cursor : pointer;
+}
+#main-content .fa-angle-right{
+    right : 10px;
+    top : 50%;
+}
+#main-content .fa-angle-left{
+    left : 10px;
+    top : 50%;
+}
+
+
+/* Feature */
+#features{
+    width : 90%;
+    margin : auto;
+}
+#features .feature-quote{
+    padding-bottom : 40px;
+}
+#features .feature-quote h1{
+    padding-top : 3.5em;
+    text-align : center;
+    font-family : 'Noto Serif' , serif;
+    letter-spacing : 2px;
+    font-weight : 500;
+    font-size : 3rem;
+}
+#features .feature-quote span{
+    background-color : #1e9be9;
+    color : #fff;
+}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+#features .feature-header{
+    display : flex;
+    justify-content: center;
+    padding-top : 80px;
+}
+#features .feature-header button{
+    text-transform: uppercase;
+    padding : 6px 16px;
+    border-radius : 12px;
+    font-weight : 500;
+    font-size : 12px;
+    font-family : 'Roboto', sans-serif;
+    background-color: #FEF0DA;
+    border : none;
+    color : #FBB244;
+}
+#features .feature-title{
+    display : flex;
+    justify-content: center;
+}
+#features .feature-detail{
+    width : 35%;
+    margin : auto;
+    text-align : center;
+    font-size : 14px;
+    color : rgba(0,0,0,0.6);
+    font-weight : 300;
+}
+#features .feature-title h2{
+    margin-top : 20px;
+    font-size : 40px;
+    color : #081158;
+    font-weight : bold;
+    letter-spacing : 0.2px;
+    font-family : 'Poppins', sans-serif;
+}
+#features .feature-detail h3{
+    margin-top : 10px;
+    font-family : 'Roboto' , sans-serif;
+}
+#features .feature-about{
+    /* display : grid;
+    grid-template-columns: 1fr 1fr 1fr; */
+    display : flex;
+    flex-wrap : wrap;
+    width : 80%;
+    margin : auto;
+    justify-content : space-around;
+    margin-top : 60px;
+    text-align : center;
+}
+#features .about-grid1,
+#features .about-grid2,
+#features .about-grid3
+{
+    width : 300px;
+}
+#features h5{
+    margin-top : 1em;
+    font-size : 15px;
+    font-family : 'Lato', sans-serif;
+    color : rgba(0,0,0,0.6);
+}
+#features .feature-about img{
+    width : 35px;
+}
+#features h4{
+    margin-top : 10px;
+    font-family : 'Roboto' , sans-serif;
+    letter-spacing: 1px;
+    font-size : 22px;
+}
+
+/* Testimonials */
+.testimonials-cover{
+    display: flex;
+    flex-wrap : wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color : #F5F7F9;
+}
+#testimonials{
+    /* font-family: 'Source Sans Pro', sans-serif; */
+    font-family : 'Poppins', sans-serif;
+}
+#testimonials .image{
+    padding-top : 2em;
+    margin-bottom : 1em;
+}
+#testimonials .comment{
+    background-color : #127F9C;
+    width : 40px;
+    height : 40px;
+    padding : 17px 19px;
+    border-radius: 50%;
+}
+#testimonials h1{
+    font-size : 30px;
+    font-weight : bold;
+    color : #000000B3;
+}
+#testimonials h2{
+    font-size : 18px;
+    font-weight : 400;
+    color : #000000B3;
+}
+#testimonials h3{
+    margin-top : 10px;
+    font-size : 16px;
+    font-weight : 400;
+    color : #000000B3;
+}
+.testi{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(350px,1fr));
+    gap : 30px;
+    padding : 3em 0em;
+    width : 90%;
+    margin : auto;
+}
+@media (max-width : 800px){
+    .testi{
+        width : 80%;
+        margin : auto;
+        grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+    }
+    #newsletter .newsletter-text{
+        text-align : center;
+    }
+}
+@media (max-width : 600px){
+    #newsletter .newsletter-input input[type="email"]{
+        width : 90%;
+        margin : auto;
+    }
+    #newsletter .newsletter-input button{
+        margin-left : 8em;
+    }
+    #newsletter .newsletter-input input[type="email"]{
+        margin-bottom : 10px;
+    }
+}
+#testimonials .grid{
+    border : 1px solid rgba(0,0,0,0.2);
+    border-radius : 5px;
+    padding : 35px;
+    /* height : 230px; */
+    background-color : #fff;
+}
+
+
+/* Newsletter */
+.reveal{
+    position : relative;
+    transform : scaleY(150px);
+    opacity : 0;
+    transition : all 1s ease;
+}
+.reveal.active{
+    transform : scaleY(0px);
+    opacity : 1;
+}
+#newsletter{
+    background-color: #2295F5;
+    /* background-color : #282828; */
+    padding-bottom : 1px;
+}
+#newsletter a{
+    text-decoration : none;
+    color : #FDFCFD;
+}
+#newsletter .subscribe h3{
+    text-align : center;
+    color : #FFF;
+    font-size : 25px;
+    font-family : var(--normal-font);
+    font-weight : 400;
+    margin-bottom : 25px;
+    padding-top : 40px;
+    text-transform: uppercase;
+}
+#newsletter .subscribe input{
+    outline : none;
+    width : 20em;
+    padding : 10px 10px 13px 10px;
+    border : none;
+    /* font-family : var(--normal-font); */
+    font-family : Roboto ,sans-serif;
+    font-size : 18px;
+}
+#newsletter .subscribe button{
+    padding : 16px 12px 14px 12px;
+    border : 1px solid #fff;
+    background-color : #0099FF;
+    color : #FFF;
+    font-family : var(--normal-font);
+    transition : all .5s ease-in-out;
+}
+#newsletter .subscribe button:hover{
+    /* background-color : #000; */
+    cursor : pointer;
+}
+#newsletter .subscribe{
+    text-align : center;
+    margin-bottom : 2.5em;
+    padding-bottom : 4em;
+    border-bottom : 2px solid rgba(0,0,0,0.2);
+    width : 90%;
+    margin : auto;
+}
+
+/* Footer */
+ul{
+    list-style : none;
+}
+footer{
+    background-color : #000;
+    font-family : 'Poppins', sans-serif;
+}
+#footer .footer-about{
+    width : 90%;
+    margin : auto;
+    border-bottom : 1px solid #fff;
+    padding-bottom : 40px;
+    display : flex;
+    justify-content: space-between;
+    flex-wrap : wrap;
+}
+#footer .footer-about .footer-socialmedia ul{
+    display : flex;
+    gap : 10px;
+}
+@media (max-width : 900px){
+    #footer .footer-about{
+        width : 90%;
+        margin : auto;
+    }
+}
+#footer .footer-about h2{
+    color : #fff;
+    font-size : 14px;
+    margin : 20px 0px;
+    font-weight : 300;
+    text-transform : uppercase;
+    letter-spacing : 0.2px;
+}
+#footer .footer-aboutus ul li,
+#footer .footer-books ul li
+{
+    color : #fff;
+    font-size : 12px;
+    margin-bottom : 8px;
+    cursor : pointer;
+}
+#footer .footer-socialmedia li{
+    font-size : 15px;
+}
+#footer .footer-about .footer-socialmedia ul li{
+    background-color : #fff;
+    padding : 3px 6px;
+    border-radius : 3px;
+    line-height : 1px;
+}
+/* #copyright{
+    background-color : #161616;
+} */
+#copyright .policies{
+    color : #fff;
+    font-weight : 400;
+}
+#copyright h1{
+    width : 90%;
+    margin : auto;
+    color: #ececec;
+    font-weight : 400;
+    font-size : 1.6rem;
+    padding-top : 20px;
+    text-align: center;
+}
+#copyright h3{
+    width : 90%;
+    margin : auto;
+    color: #ececec;
+    font-weight : 400;
+    font-size : 1.6rem;
+    text-align: center;
+}
+#copyright span{
+    font-weight : 400;
+}
+#copyright a{
+    color : #3B68AC;
+}
+#copyright .policies ul{
+    display : flex;
+    flex-wrap : wrap;
+    gap : 10px;
+    width : 85%;
+    margin : auto;
+    padding-top : 20px;
+    font-size : 12px;
+}
+#copyright .policies ul .side{
+    padding-left : 15px;
+}
+#copyright .policies ul .side-close{
+    border-right : none;
+}
+#copyright .policies ul li{
+    padding-right : 15px;
+    border-right : 1px solid #fff;
+}
+@media(max-width : 768px){
+    #copyright .policies ul{
+        width : 90%;
+    }
+}
+.copyright-info{
+    width : 85%;
+    margin : auto;
+    padding : 1.5em 0em;
+}
+#copyright .copyright-info h2{
+    font-size : 15px;
+    color : #FDFCFD;
+    font-weight : 400;
+}
+#copyright ul li{
+    align-items: center;
+}
+
+
+/* Media Queries */
+@media (max-width : 1150px){
+    html{
+        font-size : 50%;
+    }
+    #header .logo img{
+        width : 15%;
+    }
+}
+@media (max-width : 950px){
+    html{
+        font-size : 43.75%;
+    }
+    #header .database .btnlg{
+        display : none;   
+    }
+    #header .logo img{
+        width : 15%;
+    }
+    .login_page{
+        width : 40%;
+    }
+    .signup_page{
+        width : 40%;
+    }
+    #header .lists ul{
+        display : none;
+    }
+    #header .database{
+        display: flex;
+    }
+    .hamburger{
+        display : block;
+    }
+}
+
+
+@media (max-width : 768px){
+    
+    .login_page{
+        width : 100%;
+    }
+    .signup_page{
+        width : 100%;
+    }
+    .subscribe button{
+        margin-top : 20px;
+    }
+    #newsletter .subscribe input{
+        width : 90%;
+    }
+    #features .feature-detail{
+        width : 80%;
+    }
+    #features .feature-about{
+        gap : 20px;
+    }
+    #features .feature-quote{
+        padding-bottom : 40px;
+    }
+    #features .feature-quote h1{
+        font-size : 1.8rem;
+    }
+    #header .database{
+        display: flex;
+    }
+    #header .lists ul{
+        display : none;
+    }
+    .login_cover .top,
+    .signup_page .top{
+        margin-top : 10px;
+    }
+    .hamburger{
+        display : block;
+    }
+    #header{
+        display: flex;
+        position : relative;
+    }
+    .signup_cover .mid,
+    .login_cover .mid
+    {
+        margin-top: 20px;
+    }
+
+    #main-content .image-slider{
+        width : 95%;
+        height : 80vh;
+    }
 }

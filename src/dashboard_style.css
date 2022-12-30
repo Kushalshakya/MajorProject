@@ -1,0 +1,449 @@
+/* RESET RULES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+  --page-header-bgColor: #242e42;
+  --page-header-bgColor-hover: #1d2636;
+  --page-header-txtColor: #dde9f8;
+  --page-header-headingColor: #7889a4;
+  --page-content-bgColor: #f0f1f6;
+  --page-content-txtColor: #171616;
+  --page-content-blockColor: #fff;
+  --white: #fff;
+  --black: #333;
+  --blue: #00b9eb;
+  --red: #ec1848;
+  --border-radius: 4px;
+  --box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.075);
+  --switch-bgLightModeColor: #87cefa;
+  --switch-sunColor: gold;
+  --switch-moonColor: #f4f4f4;
+  --switch-bgDarkModeColor: #1f1f27;
+
+  --dashboard-grid-white : #fff;
+  --dashboard-alice-blue : #F3F6FD;
+  --dashboard-dark : #1F1F27;
+  scroll-behavior: smooth;
+}
+html{
+  font-size : 62.5%;
+  width : 62.5%;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a,
+button {
+  color: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  cursor: pointer;
+}
+
+[type="checkbox"] {
+  position: absolute;
+  left: -9999px;
+}
+
+label {
+  cursor: pointer;
+}
+
+button,
+input {
+  border: none;
+}
+
+svg {
+  display: block;
+}
+
+body {
+  font: 16px/1.5 "Lato", sans-serif;
+}
+
+
+/* HEADER STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.page-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  padding-top: 20px;
+  width: 22rem;
+  color: var(--switch-bgLightModeColor);
+  background: var(--switch-bgDarkModeColor);
+  z-index : 99;
+  transform : translateX(0%);
+  transition : all .5s ease-in-out;
+}
+.page-header h1{
+  font-size : 2.5rem;
+}
+.page-header.active{
+  transform : translateX(-100%);
+}
+/*In case you prefer an absolutely positioned header that covers the full page height, add these styles*/
+/*body {
+  position: relative;
+}
+
+.page-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+}*/
+
+/*remove these styles*/
+/*.page-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+}*/
+
+.page-header nav {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.page-header .logo {
+  display: block;
+  margin: 0 15px;
+}
+.page-header .logo svg {
+  max-width: 120px;
+  fill: var(--white);
+}
+.page-header .toggle-mob-menu {
+  display: none;
+  margin-left: 5px;
+  padding: 4px;
+  background: var(--page-content-blockColor);
+  border-radius: var(--border-radius);
+}
+
+.page-header .toggle-mob-menu svg {
+  fill: var(--black);
+  transition: transform 0.2s;
+}
+
+.page-header .admin-menu {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-top: 35px;
+}
+
+.page-header .admin-menu li:nth-last-child(2) {
+  margin-bottom: 35px;
+}
+
+.page-header .admin-menu li:last-child {
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+.page-header .admin-menu li{
+  z-index : 999;
+}
+.page-header .admin-menu li > * {
+  width: 100%;
+  padding: 12px 15px;
+}
+
+.page-header .admin-menu .switcher {
+  display: inline-block;
+  width: auto;
+}
+
+.page-header .admin-menu .menu-heading h3 {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 1.2rem;
+  margin-top: 12px;
+  color: var(--page-header-headingColor);
+}
+
+.page-header .admin-menu svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--page-header-txtColor);
+  margin-right: 10px;
+}
+
+.page-header .admin-menu a,
+.page-header .admin-menu button {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.page-header .admin-menu a:hover,
+.page-header .admin-menu a:focus,
+.page-header .admin-menu button:hover,
+.page-header .admin-menu button:focus {
+  background: var(--page-header-bgColor-hover);
+  color: var(--blue);
+  outline: none;
+}
+
+.page-header .admin-menu a:hover svg,
+.page-header .admin-menu a:focus svg,
+.page-header .admin-menu button:hover svg,
+.page-header .admin-menu button:focus svg {
+  fill: var(--blue);
+}
+#content-header{
+  background-color : var(--white);
+  width : 85%;
+  height : 10vh;
+  position : fixed;
+  top : 0;
+  right : 0;
+  font-family : 'Poppins', sans-serif;
+  transition : all .5s ease-in-out;
+  transform : translateX(0%);
+}
+#content-header.active{
+  transform : translateX(-0%);
+  width : 100%;
+}
+#content-header .content-cover{
+  width : 100%;
+  margin  : auto;
+  height : 10vh;
+  display : flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#content-header .content-cover .content-split{
+  width : 100%;
+  margin  : auto;
+  height : 10vh;
+  display : flex;
+  align-items: center;
+}
+#content-header button{
+  color : var(--black);
+  margin-left : 30px;
+  padding : 10px 12px;
+  font-size : 2rem;
+  border : none;
+}
+#content-header .content-split h1{
+  font-size : 2.2rem;
+  margin-left : 10px;
+}
+#content-header .content-split-bio{
+  margin-right : 4rem;
+}
+#content-header .content-split-bio h1{
+  font-size : 1.7rem;
+}
+#content-header .content-split-bio h2{
+  font-size : 1.4rem;
+  color : rgba(0, 0, 0, 0.6);
+}
+#content-header .content-notification{
+  display : flex;
+  gap : 10px;
+  margin-right : 20px;
+  padding-right : 20px;
+  border-right : 2px solid rgba(0, 0, 0, 0.6 );
+}
+
+
+#loader{
+  background: #FFF url('assets/loader.gif') no-repeat center center;
+  background-size : 25%;
+  width : 100%;
+  height : 100vh;
+  z-index : 999;
+  position : fixed;
+}
+@media(max-width : 768px){
+  #loader{
+      background-size : 60%;
+  }
+}
+
+
+#dashboard{
+  background-color : var(--dashboard-alice-blue);
+  width : 85%;
+  height : 93vh;
+  overflow : auto;
+  position : fixed;
+  top : 66px;
+  right : 0;
+  /* font-family : 'Lato', sans-serif; */
+  font-family : 'Poppins', sans-serif;
+  transition : all .5s ease-in-out;
+  transform : translateX(0%);
+  box-sizing : border-box;
+}
+
+#dashboard.active{
+  width : 100%;
+  transform : translateX(-0%);
+}
+/* Setting */
+#setting{
+  width : 100%;
+  height  : 100vh;
+  background-color: var(--dashboard-alice-blue);
+  position: fixed;
+  right : 0;
+  transform : translate(0%);
+  font-family : 'Poppins', sans-serif;
+  transition : all .5s ease-in-out;
+}
+#setting.active{
+  width : 100%;
+  transform : translate(-0%);
+}
+#setting .setting-cover{
+  width : 90%;
+  margin : auto;
+}
+
+
+
+/*  */
+#dashboard .dashboard-cover{
+  width : 90%;
+  margin : auto;
+}
+#dashboard .dashboard-stat-grid{
+  /* display : grid;
+  grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); */
+  display : flex;
+  flex-wrap : wrap;
+  justify-content: center;
+  height : 30vh;
+  align-items: center;
+  gap : 20px;
+}
+#dashboard .grid-stat{
+  background-color : var(--dashboard-grid-white);
+  display: flex;
+  justify-content : space-between;
+  align-items: center;
+  width : 20rem;
+  height : 120px;
+  padding : 14px;
+  border-radius : 4px;
+}
+#dashboard svg{
+  width : 50px;
+  height : 50px;
+  fill : var(--switch-bgDarkModeColor);
+}
+
+#dashboard-books{
+  width : 95%;
+  margin : auto;
+  height : auto;
+}
+#dashboard .dashboard-search{
+  text-align: right;  
+}
+#dashboard-books input{
+  width : 30%;
+  height : 5vh;
+  padding : 0px 10px;
+  outline : none;
+  border : 1px solid #171616;
+}
+#dashboard-books button{
+  border : 1px solid #171616;
+  padding : 8px 10px;
+}
+#dashboard .dashboard-b{
+  margin : 40px 0px;
+}
+#dashboard .dashboard-b{
+  text-align: left;
+}
+.dashboard-b table,
+.dashboard-b tr,
+.dashboard-b th,
+.dashboard-b td
+{
+  border-collapse: collapse;
+  border : 1px solid black;
+  padding : 10px;
+}
+.dashboard-b th{
+  text-transform: uppercase;
+}
+#dashboard .dashboard-b td:nth-child(1){
+  width : 15%;
+}
+#dashboard .dashboard-b td:nth-child(2){
+  width : 40%;
+}
+#dashboard .dashboard-b td:nth-child(3){
+  width : 20%;
+}
+#dashboard .dashboard-b td:nth-child(4){
+  width : 10%;
+}
+#dashboard .dashboard-b td:nth-child(5){
+  width : 10%;
+}
+#dashboard .dashboard-b td:nth-child(6){
+  width : 10%;
+}
+#dashboard .dashboard-b td:nth-child(7){
+  width : 10%;
+}
+
+
+@media (max-width : 768px){
+  html{
+    font-size : 39.5%;
+  }
+  #dashboard .grid-stat{
+    width : 30rem;
+    height : 120px;
+  }
+  #dashboard .dashboard-stat-grid{
+    padding-top : 35px;
+  }
+  #dashboard-books{
+    margin-top : 130px;
+  }
+  #dashboard-books input{
+    width : 60%;
+  }
+  #dashboard-books .dashboard-search{
+    text-align: center;
+  }
+  .dashboard-b{
+    width : 100%;
+    overflow : auto;
+  }
+}

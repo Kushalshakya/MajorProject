@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="E-Library Management System">
     <meta name="keywords" content="HTML, CSS, JavaScript, PHP, MYSQL">
-    <title>E-Library | Admin Login</title>
+    <title>E-Library | Login</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="assets/logo/android-chrome-512x512.png">
 </head>
@@ -113,17 +113,28 @@
             transition : all .5s ease-in-out;
         }
     }
+    h3{
+        margin-top : 20px;
+        font-size : 14px;
+    }
+    h3 a{
+        margin-left : 4px;
+        color : red;
+        text-decoration: none;
+    }
 </style>
 <body>
     <div id="loader"></div>
     <div class="login-cover">
         <div class="login-form">
-            <h1>Admin Login</h1>
+            <h1>User Login</h1>
             <form>
                 <input type="email" placeholder="Email" required>
                 <input type="password" placeholder="Password" required>
                 <input type="submit" value="Log In" class="access">
             </form>
+            <h3>New User? <a href="usersignup.html">Sign Up</a></h3>
+            <h3><a href="/index.html" style="color : #1e1e3e;">Back to the Home Page</a></h3>
         </div>
     </div>
     <div id="login-error">
