@@ -1,0 +1,411 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gafata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{
+    margin : 0;
+    padding : 0;
+}
+html{
+    font-size :62.5%;
+}
+ul{
+    list-style : none;
+}
+:root{
+    --bg-text : #1354A9;
+    --bg-color : #1354A9;
+    --bg-black : #000;
+    --normal-font: 'Josefin Sans', sans-serif;
+}
+#loader{
+    background: #FFF url('/image/svg/loader.gif') no-repeat center center;
+    background-size : 25%;
+    width : 100%;
+    height : 100vh;
+    z-index : 999;
+    position : fixed;
+}
+@media(max-width : 768px){
+    #loader{
+        background-size : 60%;
+    }
+}
+a{
+    text-decoration: none;
+    color : #000;
+}
+header{
+    position : relative;
+    background-color : #ececec;
+    position : sticky;
+    top : 0;
+    z-index : 99;
+}
+#header{
+    display : flex;
+    flex-wrap : wrap;
+    justify-content: space-between;
+    width : 95%;
+    margin : auto;
+    font-family : 'Poppins', sans-serif;
+    align-items: center;
+    height : 9vh;
+    transition : all .5s ease-in-out;
+}
+#header .logo{
+    display : flex;
+    align-items: center;
+    gap : 10px;
+    width : 20%;
+    font-family: 'Gafata', sans-serif;
+    font-size : 1.3rem;
+}
+#header .lists a{
+    color : var(--bg-black);
+    text-decoration : none;
+}
+#header .search{
+    display : flex;
+    align-items: center;
+}
+#header .search input{
+    height : 3.4rem;
+    border : 1px solid transparent;
+    width : 60rem;
+    padding : 0px 6px 0px 10px;
+    outline : none;
+    font-family: 'Poppins', sans-serif;
+    margin-right : 20px;
+    transition : all .5s ease-in-out;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+#header .search input:focus{
+    border : 1px solid rgba(0,0,0,0.3);
+}
+#header .search_query button{
+    padding : 9px 30px;
+    border : 1px solid #000;
+    color : #000;
+    margin : 0px 5px;
+    font-family: 'Poppins', sans-serif;
+    cursor : pointer;
+}
+#categories-bar{
+    width : 100%;
+    font-size : 1.4rem;
+    font-family: 'Poppins', sans-serif;
+    background-color : #fff;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+    z-index : 99;
+}
+#categories-bar .bar-cover{
+    width : 95%;
+    margin : auto;
+}
+#categories-bar ul{
+    height : 5vh;
+    display : flex;
+    gap : 30px;
+    align-items: center;
+    font-weight: 600;
+}
+#advanced-search{
+    background-image: url('/image/2019-christmas-bg.png');
+    width : 100%;
+    height : 90vh;
+    margin-top : 5px;
+    font-family : 'Poppins', sans-serif;
+}
+#advanced-search .advanced-cover{
+    width : 95%;
+    /* height : 100vh; */
+    margin : auto;
+    background-color: #fff;
+    position : relative;
+    padding-top : 20px;
+}
+#advanced-search .advance-close{
+    font-size : 20px;
+    color : red;
+    cursor : pointer;
+    position : absolute;
+    top : 10px;
+    right : 10px;
+    z-index : 79;
+}
+#advanced-search h1{
+    font-size : 2.5rem;
+    padding : 20px 0px 10px 20px;
+}
+#advanced-search h2{
+    font-size : 1.4rem;
+}
+#advanced-search h3{
+    padding : 10px 0px 20px 20px;
+    font-size: 1.3rem;
+}
+#advanced-search .search-form{
+    width : 95%;
+    margin : auto;
+    display : grid;
+    grid-template-columns: repeat(auto-fill,minmax(350px,1fr));
+}
+#advanced-search .search-form input{
+    height : 2.8rem;
+    width : 300px;
+    outline : none;
+    border : 1px solid rgba(0,0,0,0.3);
+    margin : 10px 0px;
+    padding-left : 10px;
+}
+#advanced-search .btn_search{
+    padding: 6px 18px;
+    font-family: 'Poppins', sans-serif;
+    font-size : 1.4rem;
+    outline : none;
+    border : 1px solid rgba(0,0,0,0.3);
+    margin : 20px 0px 30px 20px;
+}
+#advanced-search .newsletter img{
+    width : 50px;
+    height : 50px;
+}
+#advanced-search .newsletter{
+    background-color : #fff;
+    margin-top : 40px;
+}
+.newsletter input{
+    height : 2.8rem;
+    width : 250px;
+    padding : 0px 5px 0px 10px;
+    outline : none;
+    border : 1px solid rgba(0,0,0,0.3);
+    margin : 0px 10px;
+}
+.newsletter button{
+    outline : none;
+    border : 1px solid rgba(0,0,0,0.3);
+    padding : 6px 10px;
+    font-family: inherit;
+}
+.newsletter .cover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height : 100px;
+}
+.newsletter h2{
+    margin : 0px 10px;
+}
+
+/* Notes */
+#notes{
+    background-image : url('/image/2019-christmas-bg.png')
+}
+#notes ul{
+    font-size : 1.6rem;
+    font-family : 'Poppins', sans-serif;
+    font-weight : 600;
+    padding-left : 30px;
+}
+#notes ul li{
+    margin : 20px 0px;
+}
+.notes-cover{
+    width : 90%;
+    height : auto;
+    padding : 30px 0px 0px 30px;
+}
+#notes ul li{
+    cursor : pointer;
+}
+#notes ul h1{
+    font-size : 15px;
+}
+#notes ul h2{
+    font-size : 15px;
+}
+#notes button{
+    padding : 6px 15px;
+    border : 1px solid #DAE2B6;
+    background : #DAE2B6;
+    text-transform : uppercase;
+    font-size : 14px;
+    font-weight : 600;
+    font-family : 'Poppins', sans-serif;
+}
+#notes .sem-div{
+    display: grid;
+    margin-top : 20px;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    grid-template-columns: repeat(auto-fill,minmax(260px,1fr));
+    gap : 20px;
+}
+
+/* Footer */
+#copyright h1{
+    width : 90%;
+    margin : auto;
+    color: #ececec;
+    font-weight : 400;
+    font-size : 1.6rem;
+    padding-top : 20px;
+    text-align: center;
+}
+#copyright h3{
+    width : 90%;
+    margin : auto;
+    color: #ececec;
+    font-weight : 400;
+    font-size : 1.6rem;
+    text-align: center;
+}
+#copyright span{
+    font-weight : 400;
+}
+#copyright a{
+    color : #3B68AC;
+}
+ul{
+    list-style : none;
+}
+footer{
+    background-color : #000;
+    font-family : 'Poppins', sans-serif;
+}
+#footer .footer-about{
+    width : 90%;
+    margin : auto;
+    border-bottom : 1px solid #fff;
+    padding-bottom : 40px;
+    display : flex;
+    justify-content: space-between;
+    flex-wrap : wrap;
+}
+#footer .footer-about .footer-socialmedia ul{
+    display : flex;
+    gap : 10px;
+}
+@media (max-width : 900px){
+    #footer .footer-about{
+        width : 90%;
+        margin : auto;
+    }
+}
+#footer .footer-about h2{
+    color : #fff;
+    font-size : 14px;
+    margin : 20px 0px;
+    font-weight : 300;
+    text-transform : uppercase;
+    letter-spacing : 0.2px;
+}
+#footer .footer-aboutus ul li,
+#footer .footer-books ul li
+{
+    color : #fff;
+    font-size : 12px;
+    margin-bottom : 8px;
+    cursor : pointer;
+}
+#footer .footer-socialmedia li{
+    font-size : 15px;
+}
+#footer .footer-about .footer-socialmedia ul li{
+    background-color : #fff;
+    padding : 3px 6px;
+    border-radius : 3px;
+    line-height : 1px;
+}
+/* #copyright{
+    background-color : #161616;
+} */
+#copyright .policies{
+    color : #fff;
+    font-weight : 400;
+}
+#copyright .policies ul{
+    display : flex;
+    flex-wrap : wrap;
+    gap : 10px;
+    width : 85%;
+    margin : auto;
+    padding-top : 30px;
+    font-size : 12px;
+}
+#copyright .policies ul .side{
+    padding-left : 15px;
+}
+#copyright .policies ul .side-close{
+    border-right : none;
+}
+#copyright .policies ul li{
+    padding-right : 15px;
+    border-right : 1px solid #fff;
+}
+@media(max-width : 768px){
+    #copyright .policies ul{
+        width : 90%;
+    }
+}
+.copyright-info{
+    width : 85%;
+    margin : auto;
+    padding : 1.5em 0em;
+}
+.copyright-info h2{
+    font-size : 15px;
+    color : #FDFCFD;
+    font-weight : 400;
+}
+#copyright ul li{
+    align-items: center;
+}
+
+
+@media (max-width : 768px){
+    #header{
+        display : block;
+        height : 170px;
+    }
+    #categories-bar ul{
+        height : 10vh;
+        font-size : 1.2rem;
+        gap : 10px;
+    }
+    #header .logo{
+        width : 100%;
+        justify-content: center;
+        height : 60px;
+    }
+    #header .search{
+        display : block;
+    }
+    #header .search input{
+        width : 95%;
+        margin : auto;
+    }
+    #header .search_query{
+        margin-top : 20px;
+    }
+    #advanced-search{
+        height : 120vh;
+    }
+    #advanced-search .advanced-cover{
+        height : 80vh;
+    }
+    #advanced-search .search-form{
+        height : 50vh;
+        overflow-y: auto;
+    }
+    .newsletter .cover{
+        display : block;
+        text-align: center;
+        height : 180px;
+    }
+    .newsletter input{
+        width : 90%;
+        margin : 10px 0px;
+    }
+}
