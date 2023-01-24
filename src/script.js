@@ -1,7 +1,9 @@
 // Loader
 const loaderEl = document.querySelector('#loader');
 window.addEventListener('load', ()=>{
-    loaderEl.style.display = "none";
+    setTimeout(() => {
+        loaderEl.style.display = "none";
+    }, 2000);
 })
 
 // Navigation Arrow
@@ -82,57 +84,98 @@ window.onscroll = function(){
     }
 }
 
-// Image Slider
-const nextEl = document.querySelector('.main-next');
-const prevEl = document.querySelector('.main-prev');
-const imageSliderEl = document.querySelector('.image-slider-cover')
-const imagesEl = document.querySelectorAll('.images-sld')
+// // Image Slider
+// const nextEl = document.querySelector('.main-next')
+// const prevEl = document.querySelector('.main-prev')
+// const imageSliderEl = document.querySelector('.image-slider-cover')
+// const imagesEl = document.querySelectorAll('.images-sld')
 
-let imgNum = 1
-let timeout
+// let imgNum = 1
+// let timeout
 
-nextEl.addEventListener('click',()=>{
-    imgNum++
-    clearTimeout(timeout)
-    imageSliderUpdate()
+// nextEl.addEventListener('click',()=>{
+//     imgNum++
+//     clearTimeout(timeout)
+//     imageSliderUpdate()
+// })
+
+// prevEl.addEventListener('click',()=>{
+//     imgNum--
+//     clearTimeout(timeout)
+//     imageSliderUpdate()
+// })
+
+// imageSliderUpdate()
+// function imageSliderUpdate(){
+//     if(imgNum > imagesEl.length){
+//         imgNum = 1
+//     }
+//     else if(imgNum < 1){
+//         imgNum = imagesEl.length
+//     }
+//     imageSliderEl.style.transform = `translateX(${(imgNum -1) * -1250}px)`
+
+//     timeout = setTimeout(()=>{
+//         imgNum++
+//         imageSliderUpdate()
+//     },3000)
+// }
+
+
+// ToDoList JS
+const hideListEl = document.querySelector('.hidelist')
+const listEl = document.querySelector('.list')
+const addListEl = document.querySelector('.addlist')
+const ulListEl = document.querySelector('.ullist')
+const userInputEl = document.querySelector('.userinput')
+const errorEl = document.querySelector('#todo-error')
+
+
+addListEl.addEventListener('click',listAdd)
+
+hideListEl.addEventListener('click',()=>{
+    listEl.classList.toggle('active')
 })
-prevEl.addEventListener('click',()=>{
-    imgNum--
-    clearTimeout(timeout)
-    imageSliderUpdate()
+userInputEl.addEventListener('keyup',(key)=>{
+    if(key.which === 13){
+        listAdd()
+    }
 })
-imageSliderUpdate()
-function imageSliderUpdate(){
-    if(imgNum > imagesEl.length){
-        imgNum = 1
-    }
-    else if(imgNum < 1){
-        imgNum = imagesEl.length
-    }
-    imageSliderEl.style.transform = `translateX(${(imgNum -1) * -1250}px)`
 
-    timeout = setTimeout(()=>{
-        imgNum++
-        imageSliderUpdate()
-    },3000)
+
+function listAdd(){
+    if(userInputEl.value === ""){
+        errorEl.style.display = "block"
+        setTimeout(()=>{
+            errorEl.style.display = "none"
+        },2000)
+    }
+    else{
+        const adder = document.createElement('li')
+        adder.innerHTML = userInputEl.value
+        ulListEl.appendChild(adder)
+        userInputEl.value = ""
+    }
 }
 
 
-// Reveling
-window.addEventListener('scroll', reveal);
 
-function reveal(){
-    var reveals = document.querySelectorAll('.reveal');
-    for(var i=0;i<reveals.length;i++){
-        var windowheight = window.innerHeight;
-        var revealtop = reveals[i].getBoundingClientRect().top;
-        var revealpoint = 150;
 
-        if(revealtop < windowheight - revealpoint){
-            reveals[i].classList.add('active');
-        }
-        else{
-            reveals[i].classList.remove('active');
-        }
-    }
-}
+// Revealing
+// window.addEventListener('scroll', reveal);
+
+// function reveal(){
+//     var reveals = document.querySelectorAll('.reveal');
+//     for(var i=0;i<reveals.length;i++){
+//         var windowheight = window.innerHeight;
+//         var revealtop = reveals[i].getBoundingClientRect().top;
+//         var revealpoint = 150;
+
+//         if(revealtop < windowheight - revealpoint){
+//             reveals[i].classList.add('active');
+//         }
+//         else{
+//             reveals[i].classList.remove('active');
+//         }
+//     }
+// }
