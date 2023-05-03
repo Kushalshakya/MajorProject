@@ -127,7 +127,7 @@
     }
 </style>
 <body>
-    <div id="loader"></div>
+    <!-- <div id="loader"></div> -->
     <div class="login-cover">
         <div class="login-form">
             <h1>Create an account</h1>

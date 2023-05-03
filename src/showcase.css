@@ -1,0 +1,188 @@
+
+/* Project */
+#project a{
+    color : #000;
+    text-decoration  : none;
+}
+#project-cover{
+    width : 100%;
+    background-color : #F7F9FC;
+    padding-top : 5vh;
+}
+#project{
+    width : 80%;
+    margin : auto;
+    font-family : 'Poppins', sans-serif;
+}
+#project h1{
+    letter-spacing: 2px;
+    text-transform : uppercase;
+    text-align : center;
+    font-size : 40px;
+}
+#project h2{
+    text-align : center;
+    margin-top : 10px;
+    font-size : 15px;
+}
+#project .search-box{
+    display : flex;
+    align-items : center;
+    margin-top : 40px;
+    margin-left : 100px;
+}
+#project input[type="search"]{
+    width : 80%;
+    padding : 10px 10px 10px 20px;
+    outline : none;
+    border : 1px solid #2295F5;
+    font-size : 18px;
+    /* border-radius : 20px 0px 0px 20px; */
+}
+#project .grid-common{
+    margin-top : 4em;
+    /* box-shadow: 0 0 0.634em #000; */
+}
+#project .project-selector{
+    margin-top : 30px;
+    margin-left : 40px;
+}
+#project .project-selector ul{
+    display : flex;
+    justify-content: center;
+    gap : 1em;
+}
+#project .project-selector ul li{
+    padding : 5px 15px;
+    border : 1px solid #DEE1E3;
+    border-radius : 16px;
+    background-color : #F4F5F6;
+    font-family : 'Poppins', sans-serif;
+    font-weight : 500;
+    cursor : pointer;
+    font-size : 16px;
+}
+#project .project-selector ul .active{
+    background-color : #00ADB6;
+    color : #FFF;
+    transition : all .3s ease-in-out;
+}
+#project .project-grid{
+    display : grid;
+    /* grid-template-columns : 1fr 1fr 1fr; */
+    grid-template-columns: repeat(auto-fill,minmax(400px,1fr));
+    grid-gap : 14px;
+    padding-bottom : 80px;
+}
+#project .project-grid{
+    width : 100%;
+    margin : auto;
+    border : 1px solid #F8F8F8;
+}
+#project .project-image img{
+    width : 100%;
+}
+#project .project-grid h3{
+    font-weight : 600;
+    font-size : 20px;
+    font-family : 'Poppins', sans-serif;
+    margin-top : 15px;
+    padding-left : 15px;
+}
+#project .project-grid h4{
+    margin-top : 10px;
+    font-weight : 300;
+    font-size: 15px;
+    font-family : 'Poppins', sans-serif;
+    padding-left : 15px;
+}
+#project .project-code button{
+    margin-top : 20px;
+    outline : none;
+    padding : 4px 15px;
+    border : 1px solid #DEE1E3;
+    border-radius : 16px;
+    background-color : #F4F5F6;
+    font-family : 'Poppins', sans-serif;
+    margin-left : 10px;
+    margin-bottom : 30px;
+}
+#project .view-option{
+    display : flex;
+    justify-content : space-between;
+    width : 95%;
+    margin : auto;
+}
+#project .view-option button{
+    padding : 8px 10px;
+    font-family : 'Poppins', sans-serif;
+    font-weight : 600;
+    text-transform : uppercase;
+    border : 2px solid #0088E2;
+    color : #fff;
+    background-color : #0088E2;
+    cursor  : pointer;
+    position : relative;
+    z-index : 2;
+    font-size : 12px;
+    transition : all .5s ease-in-out;
+}
+#project .view-option button::before{
+    content : '';
+    width : 100%;
+    height : 100%;
+    position : absolute;
+    top : 0;
+    left : 0;
+    background-color : #fff;
+    z-index : -1;
+    transform : scaleX(0%);
+    transition : all .5s ease-in-out;
+    transform-origin: 0 0;
+}
+#project .view-option button:hover{
+    color : #000;
+}
+#project .view-option button:hover::before{
+    transform : scaleX(100%);
+}
+#project .page-wrapper ul{
+    display : flex;
+    align-items: center;
+}
+#project .page-wrapper .on{
+    background-color : #00ADB6;
+    border : 1px solid #00ADB6;
+    color : #fff;
+}
+#project .page-wrapper i{
+    font-size : 10px;
+}
+#project .page-wrapper ul li{
+    border : 1px solid #DEE1E3;
+    padding : 5px 15px;
+    font-family : Josefin Sans;
+    text-align : center;
+    line-height: 1.5rem;
+    color : #00ADB6;
+}
+#project .page-wrapper{
+    width : 20%;
+    margin : auto;
+}
+@media (max-width : 900px){
+    #project .page-wrapper{
+        width : 60%;
+        margin : auto;
+    }
+}
+#project .page-wrapper ul{
+    padding : 4em 0em;
+}
+#project .project-page ul li:hover{
+    cursor : pointer;
+}
+#project .project-page .off:hover{
+    background-color : #EEEEEE;
+}
+/* Project */

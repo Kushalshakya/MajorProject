@@ -124,7 +124,7 @@
     }
 </style>
 <body>
-    <div id="loader"></div>
+    <!-- <div id="loader"></div> -->
     <div class="login-cover">
         <div class="login-form">
             <h1>User Login</h1>
@@ -144,14 +144,12 @@
     <!-- <div id="login-error">
         <h2>Wrong Credentials. Please leave if you don't have admin access.</h2>
     </div> -->
-    <script src="script.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        // const accessEl = document.querySelector('.access')
-        // const loginError = document.querySelector('#login-error')
+    <script src="./scripts/common.js" defer type="text/javascript"></script>
 
-        // loginError.style.display = "block"
-        // setTimeout(()=>{
-        //     loginError.style.display = "none"
-        // },2000)
-    </script>
+        <!-- const accessEl = document.querySelector('.access')
+        const loginError = document.querySelector('#login-error'        
+        loginError.style.display = "block"
+        setTimeout(()=>{
+            loginError.style.display = "none"
+        },2000) -->
 </body>

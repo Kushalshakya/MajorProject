@@ -1,7 +1,13 @@
-<!-- <?php
+<?php
   session_start();
   ob_start();
-?> -->
+  if($_SESSION['admin_user']){
+
+  }
+  else{
+    header("Location: ../admin.php");
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +17,7 @@
     <title>E-Library | Admin Dashboard</title>
     <link rel="stylesheet" href="dashboard_style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" href="assets/logo/android-chrome-512x512.png">
+    <link rel="icon" href="../assets/logo/android-chrome-512x512.png">
 </head>
 <body>
   <div id="loader"></div>
@@ -47,7 +53,7 @@
         <symbol id="users" viewBox="0 0 16 16">
           <path d="M8,0a8,8,0,1,0,8,8A8,8,0,0,0,8,0ZM8,15a7,7,0,0,1-5.19-2.32,2.71,2.71,0,0,1,1.7-1,13.11,13.11,0,0,0,1.29-.28,2.32,2.32,0,0,0,.94-.34,1.17,1.17,0,0,0-.27-.7h0A3.61,3.61,0,0,1,5.15,7.49,3.18,3.18,0,0,1,8,4.07a3.18,3.18,0,0,1,2.86,3.42,3.6,3.6,0,0,1-1.32,2.88h0a1.13,1.13,0,0,0-.27.69,2.68,2.68,0,0,0,.93.31,10.81,10.81,0,0,0,1.28.23,2.63,2.63,0,0,1,1.78,1A7,7,0,0,1,8,15Z" />
         </symbol>
-        <symbol id="collection" viewBox="0 0 16 16">
+        <symbol id="collection" viewBox="0 0 16 16" style="fill: rgba(255, 255, 2555);">
           <rect width="7" height="7" />
           <rect y="9" width="7" height="7" />
           <rect x="9" width="7" height="7" />
@@ -93,7 +99,7 @@
       </svg>
       <header class="page-header">
         <nav>
-          <a href="#0" aria-label="forecastr logo" class="logo">
+          <a aria-label="forecastr logo" class="logo">
             <h1>E-Library</h1>
           </a>
           <ul class="admin-menu">
@@ -110,7 +116,7 @@
               </a>
             </li>
             <li>
-              <a href="#dashboard-books">
+              <a href="./books.php">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255);" class="book">
                   <path d="M19 2H6c-1.206 0-3 .799-3 3v14c0 2.201 1.794 3 3 3h15v-2H6.012C5.55 19.988 5 19.806 5 19s.55-.988 1.012-1H21V4c0-1.103-.897-2-2-2zm0 14H5V5c0-.806.55-.988 1-1h13v12z">
                   </path>
@@ -119,33 +125,48 @@
               </a>
             </li>
             <li>
-              <a href="#0">
+              <a href="./user.php">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255);">
                   <path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm9 11v-1a7 7 0 0 0-7-7h-4a7 7 0 0 0-7 7v1h2v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1z">
                   </path>
                 </svg>
-                <span>Users</span>
+                <span>Accounts</span>
+              </a>
+            </li>
+            <!-- <svg>
+              <use xlink:href="#collection"></use>
+            </svg> -->
+            <li>
+              <a href="./donation.php">
+                <i class="fa fa-heart"></i>
+                <span>Donation</span>
+              </a>
+            </li>
+           
+            <li>
+              <a href="./notes.php">
+                <img src="../assets/note.svg">
+                <span style="margin-left:5px;">Notes</span>
               </a>
             </li>
             <li>
-              <a href="#0">
-                <svg>
-                  <use xlink:href="#collection"></use>
-                </svg>
-                <span>Collection</span>
-              </a>
-            </li>
-            <li>
-              <a href="#0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 2555);">
-                  <path d="M20 1.999H4c-1.103 0-2 .897-2 2v18l4-4h14c1.103 0 2-.897 2-2v-12c0-1.103-.897-2-2-2zm-6 11H7v-2h7v2zm3-4H7v-2h10v2z">
-                </path>
+              <a href="./newsletter.php">
+              <svg style="fill: rgba(255, 255, 2555);" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="_x31_3_x2C__newsletter_x2C__newspaper_x2C__article_x2C__blog_x2C__news_paper"><g id="XMLID_858_"><g id="XMLID_148_">
+                <path d="M363.5,233.5h-270c-2.761,0-5-2.239-5-5v-75c0-2.761,2.239-5,5-5h270c2.762,0,5,2.239,5,5v75     C368.5,231.261,366.262,233.5,363.5,233.5z M98.5,223.5h260v-65h-260V223.5z" id="XMLID_598_"/></g><g id="XMLID_147_">
+                <path d="M183.5,338.5h-90c-2.761,0-5-2.238-5-5v-60c0-2.762,2.239-5,5-5h90c2.761,0,5,2.238,5,5v60     C188.5,336.262,186.261,338.5,183.5,338.5z M98.5,328.5h80v-50h-80V328.5z" id="XMLID_595_"/></g><g id="XMLID_146_">
+                <path d="M273.5,338.5h-90c-2.761,0-5-2.238-5-5v-60c0-2.762,2.239-5,5-5h90c2.762,0,5,2.238,5,5v60     C278.5,336.262,276.262,338.5,273.5,338.5z M188.5,328.5h80v-50h-80V328.5z" id="XMLID_592_"/></g><g id="XMLID_145_">
+                <path d="M363.5,338.5h-90c-2.762,0-5-2.238-5-5v-60c0-2.762,2.238-5,5-5h90c2.762,0,5,2.238,5,5v60     C368.5,336.262,366.262,338.5,363.5,338.5z M278.5,328.5h80v-50h-80V328.5z" id="XMLID_589_"/></g><g id="XMLID_144_">
+                <path d="M168.5,363.5h-65c-2.761,0-5-2.238-5-5s2.239-5,5-5h65c2.761,0,5,2.238,5,5S171.261,363.5,168.5,363.5z" id="XMLID_588_"/></g><g id="XMLID_143_">
+                <path d="M263.5,363.5h-65c-2.761,0-5-2.238-5-5s2.239-5,5-5h65c2.762,0,5,2.238,5,5S266.262,363.5,263.5,363.5z" id="XMLID_587_"/></g><g id="XMLID_142_">
+                <path d="M358.5,363.5h-65c-2.762,0-5-2.238-5-5s2.238-5,5-5h65c2.762,0,5,2.238,5,5S361.262,363.5,358.5,363.5z" id="XMLID_586_"/></g><g id="XMLID_141_">
+                <path d="M168.5,388.5h-65c-2.761,0-5-2.238-5-5s2.239-5,5-5h65c2.761,0,5,2.238,5,5S171.261,388.5,168.5,388.5z" id="XMLID_585_"/></g><g id="XMLID_140_">
+                <path d="M263.5,388.5h-65c-2.761,0-5-2.238-5-5s2.239-5,5-5h65c2.762,0,5,2.238,5,5S266.262,388.5,263.5,388.5z" id="XMLID_584_"/></g><g id="XMLID_139_"><path d="M358.5,388.5h-65c-2.762,0-5-2.238-5-5s2.238-5,5-5h65c2.762,0,5,2.238,5,5S361.262,388.5,358.5,388.5z" id="XMLID_583_"/></g><g id="XMLID_138_"><path d="M168.5,413.5h-65c-2.761,0-5-2.238-5-5s2.239-5,5-5h65c2.761,0,5,2.238,5,5S171.261,413.5,168.5,413.5z" id="XMLID_582_"/></g><g id="XMLID_137_"><path d="M263.5,413.5h-65c-2.761,0-5-2.238-5-5s2.239-5,5-5h65c2.762,0,5,2.238,5,5S266.262,413.5,263.5,413.5z" id="XMLID_581_"/></g><g id="XMLID_136_"><path d="M358.5,413.5h-65c-2.762,0-5-2.238-5-5s2.238-5,5-5h65c2.762,0,5,2.238,5,5S361.262,413.5,358.5,413.5z" id="XMLID_580_"/></g><g id="XMLID_135_"><path d="M413.5,448.5h-370c-2.761,0-5-2.238-5-5v-325c0-2.761,2.239-5,5-5h370c2.762,0,5,2.239,5,5v325     C418.5,446.262,416.262,448.5,413.5,448.5z M48.5,438.5h360v-315h-360V438.5z" id="XMLID_577_"/></g><g id="XMLID_134_"><path d="M468.5,398.5h-55c-2.762,0-5-2.238-5-5s2.238-5,5-5h50v-315h-360v45c0,2.761-2.239,5-5,5s-5-2.239-5-5     v-50c0-2.761,2.239-5,5-5h370c2.762,0,5,2.239,5,5v325C473.5,396.262,471.262,398.5,468.5,398.5z" id="XMLID_576_"/></g></g></g><g id="Layer_1"/>
               </svg>
-                <span>Chat</span>
+                <span>Newsletter</span>
               </a>
             </li>
-            
-            <li class="menu-heading">
+            <!-- <li class="menu-heading">
               <h3>Settings</h3>
             </li>
             <li>
@@ -171,7 +192,7 @@
                 </svg>
                 <span">Charts</span>
               </a>
-            </li>
+            </li> -->
             <li>
               <button>
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);">
@@ -216,13 +237,24 @@
           </div>
         </div>
       </div>
+      <?php
+        $userdatabase = mysqli_connect("localhost","root","","elibrary");
+        $userquery = mysqli_query($userdatabase,"SELECT COUNT(*) AS count FROM users");
+        $userconnfetch = mysqli_fetch_assoc($userquery);
+        $usercon = $userconnfetch['count'];
+
+        $bookquery = mysqli_query($userdatabase,"SELECT COUNT(*) AS count FROM books");
+        $bookconfetch = mysqli_fetch_Assoc($bookquery);
+        $bookcon = $bookconfetch['count'];
+      ?>
+
       <!-- End of contentHeader -->
       <div id="dashboard">
         <div class="dashboard-cover" id="dashboard-cv">
             <div class="dashboard-stat-grid">
                 <div class="stat-grid1 grid-stat">
                   <div class="grid-split1">
-                    <h2 class="dynamicnum" data-num="54">00</h2>
+                    <h2 class="dynamicnum" data-num="<?php echo $usercon;?>">00</h2>
                     <h3>Users</h3>
                   </div>
                   <div class="grid-split2">
@@ -234,7 +266,7 @@
                 </div>
                 <div class="stat-grid2 grid-stat">
                   <div class="grid-split1">
-                    <h2 class="dynamicnum" data-num="74">00</h2>
+                    <h2 class="dynamicnum" data-num="6">00</h2>
                     <h3>Projects</h3>
                   </div>
                   <div class="grid-split2">
@@ -245,7 +277,7 @@
                 </div>
                 <div class="stat-grid3 grid-stat">
                     <div class="grid-split1">
-                      <h2 class="dynamicnum" data-num="65">00</h2>
+                      <h2 class="dynamicnum" data-num="<?php echo $bookcon;?>">00</h2>
                       <h3>Books</h3>
                     </div>
                     <div class="grid-split2">
@@ -255,15 +287,25 @@
                       </svg>
                     </div>
                 </div>
+                <?php
+                  $database_link = mysqli_connect('localhost','root','','elibrary');
+                  $database_query = mysqli_query($database_link,"SELECT COUNT(*) AS count FROM papers");
+                  $database_row_count = mysqli_fetch_assoc($database_query);
+                  $count = $database_row_count['count'];
+                  // echo "The count is $count";
+                ?>
                 <div class="stat-grid4 grid-stat">
                   <div class="grid-split1">
-                    <h2 class="dynamicnum" data-num="125">00</h2>
-                    <h3>Projects</h3>
+                    <h2 class="dynamicnum" data-num="<?php echo $count;?>">00</h2>
+                    <h3>Notes</h3>
                   </div>
                   <div class="grid-split2">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                       <path d="M21 5c0-1.103-.897-2-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5zM5 19V5h14l.002 14H5z"></path><path d="M7 7h1.998v2H7zm4 0h6v2h-6zm-4 4h1.998v2H7zm4 0h6v2h-6zm-4 4h1.998v2H7zm4 0h6v2h-6z">
-                      </path></svg>
+                      </path></svg> -->
+                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M21,1H3A1,1,0,0,0,2,2V22a1,1,0,0,0,1,1H17a1.011,1.011,0,0,0,.383-.077,1,1,0,0,0,.325-.217l4-4A1.131,1.131,0,0,0,22,18V2A1,1,0,0,0,21,1ZM16,18v3H4V3H20V17H17A1,1,0,0,0,16,18Zm1-8a1,1,0,0,1-1,1H8A1,1,0,0,1,8,9h8A1,1,0,0,1,17,10Zm-4,4a1,1,0,0,1-1,1H8a1,1,0,0,1,0-2h4A1,1,0,0,1,13,14Z"/>
+                      </svg>
                   </div>
                 </div>
             </div>
@@ -271,6 +313,8 @@
         <!-- End of dashboard -->
         <div id="dashboard-books">
           <div class="dashboard-cover">
+
+            
             <div class="dashboard-search">
               <form action="" method="post">
                 <input type="search" placeholder='Looking for a book' name="search_name" autocomplete="off" spellcheck="false">
@@ -279,8 +323,8 @@
             </div>
             <div class="dashboard-b">
               <?php
-                $book = mysqli_connect('localhost','root','','weblibrary');
-                $sql = "SELECT * FROM `books` Orders LIMIT 5;";
+                $book = mysqli_connect('localhost','root','','elibrary');
+                $sql = "SELECT * FROM `books`;";
                 $res = mysqli_query($book,$sql);
 
                 if(isset($_POST['bk_search'])){
@@ -292,23 +336,28 @@
                   else{
                   echo "<table>";
                     echo "<tr>";
-                      echo "<th>"; echo "bid";  echo "</th>";
-                      echo "<th>"; echo "name";  echo "</th>";
-                      echo "<th>"; echo "authors";  echo "</th>";
-                      echo "<th>"; echo "edition";  echo "</th>";
-                      echo "<th>"; echo "status";  echo "</th>";
-                      echo "<th>"; echo "quantity";  echo "</th>";
-                      echo "<th>"; echo "department";  echo "</th>";
+                      echo "<th>"; echo "ISBN";  echo "</th>";
+                      echo "<th>"; echo "Name";  echo "</th>";
+                      echo "<th>"; echo "Authors";  echo "</th>";
+                      echo "<th>"; echo "Language";  echo "</th>";
+                      echo "<th>"; echo "Genre";  echo "</th>";
+                      echo "<th>"; echo "Published";  echo "</th>";
+                      echo "<th>"; echo "Image";  echo "</th>";
                     echo "</tr>";
                     while($row = mysqli_fetch_assoc($search)){
                       echo "<tr>";
-                        echo "<td>"; echo $row['bid']; echo "</td>";
+                        echo "<td>"; echo $row['isbn']; echo "</td>";
                         echo "<td>"; echo $row['name']; echo "</td>";
-                        echo "<td>"; echo $row['authors']; echo "</td>";
-                        echo "<td>"; echo $row['edition']; echo "</td>";
-                        echo "<td>"; echo $row['status']; echo "</td>";
-                        echo "<td>"; echo $row['quantity']; echo "</td>";
-                        echo "<td>"; echo $row['department']; echo "</td>";
+                        echo "<td>"; echo $row['author']; echo "</td>";
+                        echo "<td>"; echo $row['language']; echo "</td>";
+                        echo "<td>"; echo $row['genre']; echo "</td>";
+                        echo "<td>"; echo $row['published']; echo "</td>";
+                        $db = mysqli_connect("localhost","root","","elibrary");
+                        $book_id = $row['id'];
+                        $dsp = mysqli_query($db,"SELECT * FROM `book_images` WHERE book_id = $book_id");
+                        while($ig = mysqli_fetch_assoc($dsp)){
+                          echo "<td>"; echo '<img src="data:image;base64,' .base64_encode($ig['imagefile']).'">'; echo "</td>";
+                        }
                       echo "</tr>";
                     }
                   echo "</table>";
@@ -317,24 +366,29 @@
                 else{
                   echo "<table>";
                     echo "<tr>";
-                      echo "<th>"; echo "bid";  echo "</th>";
-                      echo "<th>"; echo "name";  echo "</th>";
-                      echo "<th>"; echo "authors";  echo "</th>";
-                      echo "<th>"; echo "edition";  echo "</th>";
-                      echo "<th>"; echo "status";  echo "</th>";
-                      echo "<th>"; echo "quantity";  echo "</th>";
-                      echo "<th>"; echo "department";  echo "</th>";
+                      echo "<th>"; echo "ISBN";  echo "</th>";
+                      echo "<th>"; echo "Name";  echo "</th>";
+                      echo "<th>"; echo "Authors";  echo "</th>";
+                      echo "<th>"; echo "Language";  echo "</th>";
+                      echo "<th>"; echo "Genre";  echo "</th>";
+                      echo "<th>"; echo "Published";  echo "</th>";
+                      echo "<th>"; echo "Image";  echo "</th>";
                     echo "</tr>";
                     
                     while($row = mysqli_fetch_assoc($res)){
                       echo "<tr>";
-                        echo "<td>"; echo $row['bid']; echo "</td>";
+                        echo "<td>"; echo $row['isbn']; echo "</td>";
                         echo "<td>"; echo $row['name']; echo "</td>";
-                        echo "<td>"; echo $row['authors']; echo "</td>";
-                        echo "<td>"; echo $row['edition']; echo "</td>";
-                        echo "<td>"; echo $row['status']; echo "</td>";
-                        echo "<td>"; echo $row['quantity']; echo "</td>";
-                        echo "<td>"; echo $row['department']; echo "</td>";
+                        echo "<td>"; echo $row['author']; echo "</td>";
+                        echo "<td>"; echo $row['language']; echo "</td>";
+                        echo "<td>"; echo $row['genre']; echo "</td>";
+                        echo "<td>"; echo $row['published']; echo "</td>";
+                        $db = mysqli_connect("localhost","root","","elibrary");
+                        $book_id = $row['id'];
+                        $dsp = mysqli_query($db,"SELECT * FROM `book_images` WHERE book_id = $book_id");
+                        while($ig = mysqli_fetch_assoc($dsp)){
+                          echo "<td>"; echo '<img src="data:image;base64,' .base64_encode($ig['imagefile']).'">'; echo "</td>";
+                        }
                       echo "</tr>";
                     }
                   echo "</table>";
@@ -347,6 +401,6 @@
     </div>
     </div>
   
-  <script src="dashboard_script.js" type="text/javascript"></script>
+  <script src="./adminscripts/dashboard.js" defer type="text/javascript"></script>
 </body>
 </html>

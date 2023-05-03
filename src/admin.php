@@ -166,13 +166,6 @@
             }            
         }
     ?>
-    <script src="./script.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        const loginError = document.querySelector('#login-error')
-
-        loginError.style.display = "block"
-        setTimeout(()=>{
-            loginError.style.display = "none"
-        },4000)
-    </script>
+    <script src="./scripts/admin.js" type="text/javascript"></script>
+    <script src="./scripts/common.js" type="text/javascript"></script>
 </body>

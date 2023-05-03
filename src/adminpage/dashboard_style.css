@@ -276,7 +276,7 @@ body {
 
 
 #loader{
-  background: #FFF url('assets/loader.gif') no-repeat center center;
+  background: #FFF url('../assets/loader.gif') no-repeat center center;
   background-size : 25%;
   width : 100%;
   height : 100vh;
@@ -308,6 +308,46 @@ body {
 #dashboard.active{
   width : 100%;
   transform : translateX(-0%);
+}
+
+
+
+#newsletter-admin{
+  background-color : var(--dashboard-alice-blue);
+  width : 85%;
+  height : auto;
+  position : absolute;
+  top : 66px;
+  right : 0;
+  font-family : 'Poppins', sans-serif;
+  transition : all .5s ease-in-out;
+  transform : translateX(0%);
+  padding : 5px 0 30px 0;
+  z-index : -1;
+}
+#newsletter-admin.active{
+  transform : translateX(-0%);
+  width : 100%;
+}
+
+#donation-admin{
+  background-color : var(--dashboard-alice-blue);
+  width : 85%;
+  min-height : 100vh;
+  position : absolute;
+  top : 66px;
+  right : 0;
+  font-family : 'Poppins', sans-serif;
+  transition : all .5s ease-in-out;
+  transform : translateX(0%);
+}
+#donation-admin.active{
+  transform : translateX(-0%);
+  width : 100%;
+}
+#donation-admin .donation-container{
+  height : auto;
+  padding-bottom : 30px;
 }
 
 
@@ -374,9 +414,10 @@ body {
 }
 #dashboard-books input{
   width : 30%;
-  height : 5vh;
+  height : 5.1vh;
   padding : 0px 10px;
   outline : none;
+  font-family : 'Poppins', sans-serif;
   border : 1px solid #171616;
 }
 #dashboard-books button{
@@ -388,6 +429,10 @@ body {
 }
 #dashboard .dashboard-b{
   text-align: left;
+}
+#dashboard tr img{
+  width : 100px;
+  height : auto;
 }
 .dashboard-b table,
 .dashboard-b tr,
@@ -405,7 +450,7 @@ body {
   width : 15%;
 }
 #dashboard .dashboard-b td:nth-child(2){
-  width : 40%;
+  width : 30%;
 }
 #dashboard .dashboard-b td:nth-child(3){
   width : 20%;
@@ -420,11 +465,18 @@ body {
   width : 10%;
 }
 #dashboard .dashboard-b td:nth-child(7){
-  width : 10%;
+  width : 20%;
 }
 
 
-
+.fa-heart{
+    width : 24px;
+    height : 24px;
+    color : rgba(255, 255, 255);
+    padding : 5px 2px 0px 2px;
+    font-size : 18px;
+    margin-right : 4px;
+  }
 
 .users-display table,
 .users-display tr,

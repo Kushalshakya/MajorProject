@@ -1,5 +1,6 @@
 <?php
     include "./src/connection.php";
+    date_default_timezone_set('Asia/Kathmandu');
     session_start();
     ob_start();
 ?>
@@ -15,7 +16,61 @@
     <link rel="stylesheet" href="src/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="src/assets/logo/android-chrome-512x512.png">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
+<style>
+    #login-error{
+        font-family : 'Poppins', sans-serif;
+        position : fixed;
+        bottom : 10px;
+        left : 10px;
+        padding : 10px;
+        box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        font-size : 9px;
+        background-color : red;
+        display : none;
+        display : block;
+        transition : all .5s ease-in-out;
+    }
+    #login-error h2{
+        color : #fff;
+        font-weight: 400;
+    }
+    #error-user{
+        font-family : 'Poppins', sans-serif;
+        position : fixed;
+        bottom : 10px;
+        left : 10px;
+        padding : 10px;
+        box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        font-size : 9px;
+        background-color : red;
+        display : none;
+        display : block;
+        transition : all .5s ease-in-out;
+    }
+    #error-user h2{
+        color : #fff;
+        font-weight: 400;
+    }
+    #login-success{
+        font-family : 'Poppins', sans-serif;
+        position : absolute;
+        bottom : 10px;
+        left : 10px;
+        padding : 10px;
+        box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        font-size : 9px;
+        background-color : #1354A9;
+        /* display : block; */
+        display : none;
+        transition : all .5s ease-in-out;
+    }
+    #login-success h2{
+        color : #fff;
+        font-weight: 400;
+    }
+</style>
 <body>
     <div id="loader"></div>
     <a href="#">
@@ -28,11 +83,10 @@
             <h1>E-Library</h1>
             <div class="lists">
                 <ul class="m-nav">
-                    <li><a href="src/books.html">Book</a></li>
-                    <li><a href="#">Showcase</a></li>
-                    <li><a href="#">Community</a></li>
+                    <li><a href="src/books.php">Book</a></li>
+                    <li><a href="src/showcase.php">Showcase</a></li>
                     <li><a href="src/curriculum.php">Curriculum</a></li>
-                    <li><a href="src/study.html">Study</a></li>
+                    <li><a href="src/study.php">Study</a></li>
                     <li><a href="src/userlogin.php">Login</a></li>
                 </ul>
             </div>
@@ -47,11 +101,10 @@
             </div>
             <div class="lists">
                 <ul class="midscreen-display">
-                    <li><a href="src/books.html">Book</a></li>
-                    <li><a href="#">Showcase</a></li>
-                    <li><a href="#">Community</a></li>
+                    <li><a href="src/books.php">Book</a></li>
+                    <li><a href="src/showcase.php">Showcase</a></li>
                     <li><a href="src/curriculum.php">Curriculum</a></li>
-                    <li><a href="src/study.html">Study</a></li>
+                    <li><a href="src/study.php">Study</a></li>
                 </ul>
             </div>
             <?php
@@ -59,7 +112,7 @@
                     ?>
                     <a href="./src/sessionuser_end.php">
                         <?php
-                            echo $_SESSION['login_user'];
+                            echo "<h2 style='font-size:20px;'>" . $_SESSION['login_user'] . "</h2>";
                         ?>
                     </a>
                     <?php
@@ -118,20 +171,32 @@
                 $content_connect = mysqli_query($db,"SELECT * from `users` WHERE email='$_POST[email]' && password='$_POST[password]';");
                 $count = 0;
                 $count = mysqli_num_rows($content_connect);
-                if($count == 0){
-                    ?>
-                    <div id='login-error'>
-                        <h2>Username or Password doesn't match</h2>
-                    </div>
-                <?php
-                }
-                else{
-                    if($content_connect){
-                        $_SESSION['login_user'] = $_POST['email'];
-                        echo "<script>window.location.href = './index.php'</script>";
+                if($count == 1 ){
+                    $ftch = mysqli_fetch_assoc($content_connect);
+                    // print_r($ftch);
+                    if($ftch['status'] == 0){
+                        ?>
+                            <div id='login-error'>
+                                <h2>Not Approved Yet! Please try again later.</h2>
+                            </div>
+                            <?php
+                            // header("Location: ./study.php");
                     }
+                else{
+                    $_SESSION['login_user'] = $ftch['username'];
+                    header("Location: ./src/books.php");
                 }
-            }
+                }
+                
+                 else{
+                        ?>
+                            <div id="login-error">
+                                <h2>Username or Password doesn't match</h2>
+                            </div>
+                        <?php
+                    // header("Location: ./index.php");
+                    }
+                    }
         ?>
         <div class="signup_page ss">
             <div class="signup_cover">
@@ -156,6 +221,7 @@
                         <div class="pass">
                             <input type="password" placeholder="Password" spellcheck="false" autocomplete="off" required name="password">
                         </div>
+                        <input type="text" name="datetime" value="<?php echo date('M d, Y g:i a');?>" style="display:none">
                     </div>
                     <div class="signup_btn">
                         <button name="register" style="cursor:pointer;">Register</button>
@@ -171,9 +237,25 @@
         </div>
     </header>
     <?php
+        $statusnum = 0;
         if(isset($_POST['register'])){
-            mysqli_query($db, "INSERT INTO `users` VALUES ('','$_POST[username]','$_POST[phonenumber]','$_POST[email]','$_POST[dob]','$_POST[password]');");
-            echo "<script>window.location.href = './index.php'</script>";
+            $query="INSERT INTO `users` VALUES ('','$_POST[username]','$_POST[phonenumber]','$_POST[email]','$_POST[dob]','$_POST[password]',$statusnum,'$_POST[datetime]')";
+            // print_r($query);
+            $checker = mysqli_query($db, $query);
+            if(!$checker){
+                ?>
+                <div id="login-error">
+                    <h2>Oops! Something went wrong. Please try again later.</h2>
+                </div>                
+                <?php
+            }
+            else{
+                ?>
+                <div id="login-success">
+                    <h2>Your account registration has been successful!</h2>
+                </div>                
+                <?php
+            }
         }
     ?>
 
@@ -186,7 +268,7 @@
                 <input type="text" placeholder="Looking for a book">
                 <i class="fa fa-angle-right search-right"></i>
             </div>
-            <img src="./src/assets/extra.png" alt="" style="width:100%;padding-top:30px;padding-bottom:50px;">
+            <!-- <img src="./src/assets/extra.png" alt="" style="width:100%;padding-top:30px;padding-bottom:50px;"> -->
         </div>
     </div>
 
@@ -201,25 +283,25 @@
                 <p>With a focus on developing students critical thinking and problem-solving skills<br/>We brought you a website that is inclusive and culturally responsive, and the use of modern<br>technology and teaching methods to enhance the learning experience</p>
             </div>
             <div class="featurebox">
-                <div class="flexboxfeature1 flexboxfeature">
+                <div class="flexboxfeature1 flexboxfeature" data-aos="fade-up" data-aos-duration="2000">
                     <img src="src\assets\courses.svg" alt="feature-img" />
                     <h2>24 / 7 Active</h2>
                     <div class="line"></div>
-                    <p>The gradual accumulation of information about</p>
+                    <p>24/7 Active E-Library</p>
                 </div>
-                <div class="flexboxfeature2 flexboxfeature">
+                <div class="flexboxfeature2 flexboxfeature" data-aos="fade-down" data-aos-duration="2000">
                     <img src="src\assets\expert.svg" alt="feature-img" />
-                    <h2>Expert instruction</h2>
+                    <h2>Explore</h2>
                     <div class="line"></div>
-                    <p>The gradual accumulation of information about</p>
+                    <p>Your Guide to New Content & Resources</p>
                 </div>
-                <div class="flexboxfeature3 flexboxfeature unique">
+                <div class="flexboxfeature3 flexboxfeature unique"  data-aos="fade-up" data-aos-duration="2000">
                     <img src="src\assets\lab.svg" alt="feature-img" />
-                    <h2>Books Liberary</h2>
+                    <h2>Resources</h2>
                     <div class="line lineunique"></div>
-                    <p class="punique">The gradual accumulation of information about</p>
+                    <p class="punique">Projects, Arts & different resources for free</p>
                 </div>
-                <div class="flexboxfeature4 flexboxfeature">
+                <div class="flexboxfeature4 flexboxfeature" data-aos="fade-down" data-aos-duration="2000">
                     <img src="src\assets\access.svg" alt="feature-img" />
                     <h2>Lifetime access</h2>
                     <div class="line"></div>
@@ -231,41 +313,41 @@
     <div id="features">
         <div class="feature-cover">
             <div class="feature-grid">
-                <div class="feature1 grid-feature">
+                <div class="feature1 grid-feature" data-aos="fade-right" data-aos-duration="1000">
                     <img src="src/assets/feature1.svg" alt="feature-img">
-                    <h2>Card sorting</h2>
-                    <p>Discover how people group and<br>label information.</p>
-                    <button>Learn more <span><i class="fa fa-arrow-right"></i></span></button>
+                    <h2>Digital</h2>
+                    <p>The Future of Libraries:<br>Navigating the Digital E-Library</p>
+                    <!-- <button>Learn more <span><i class="fa fa-arrow-right"></i></span></button> -->
                 </div>
-                <div class="feature2 grid-feature">
+                <div class="feature2 grid-feature"  data-aos="fade-right" data-aos-duration="1000">
                     <img src="src/assets/feature2.svg" alt="feature-img">
-                    <h2>Prototyping tests</h2>
-                    <p>Discover how people navigate your<br>Figma prototypes.</p>
-                    <button>Learn more <span><i class="fa fa-arrow-right"></i></span></button>
+                    <h2>E-Resources</h2>
+                    <p>Access to various e-resources such<br>as books, notes and question papers.</p>
+                    <!-- <button>Learn more <span><i class="fa fa-arrow-right"></i></span></button> -->
                 </div>
-                <div class="feature3 grid-feature">
+                <div class="feature3 grid-feature" data-aos="fade-right" data-aos-duration="1000">
                     <img src="src/assets/feature3.svg" alt="feature-img">
-                    <h2>First click tests</h2>
-                    <p>Test interaction with first click and<br>navigation tests.</p>
-                    <button>Learn more <span><i class="fa fa-arrow-right"></i></span></button>
+                    <h2>Personalization</h2>
+                    <p>Users can create an account and<br>save their preferences.</p>
+                    <!-- <button>Learn more <span><i class="fa fa-arrow-right"></i></span></button> -->
                 </div>
-                <div class="feature4 grid-feature">
+                <div class="feature4 grid-feature" data-aos="fade-left" data-aos-duration="1000">
                     <img src="src/assets/feature4.svg" alt="feature-img">
-                    <h2>Design surveys</h2>
-                    <p>Get feedback on images, videos or<br>audio files.</p>
-                    <button>Learn more <span><i class="fa fa-arrow-right"></i></span></button>
+                    <h2>Community feature</h2>
+                    <p>Users can interact with<br>librarians through chat<br></p>
+                    <!-- <button>Learn more <span><i class="fa fa-arrow-right"></i></span></button> -->
                 </div>
-                <div class="feature5 grid-feature">
+                <div class="feature5 grid-feature" data-aos="fade-left" data-aos-duration="1000">
                     <img src="src/assets/feature5.svg" alt="feature-img">
-                    <h2>Preference tests</h2>
-                    <p>Find out which designs users prefer<br>and why.</p>
-                    <button>Learn more <span><i class="fa fa-arrow-right"></i></span></button>
+                    <h2>Preference</h2>
+                    <p>Personalizing Your E-Library<br>Experience</p>
+                    <!-- <button>Learn more <span><i class="fa fa-arrow-right"></i></span></button> -->
                 </div>
-                <div class="feature6 grid-feature">
+                <div class="feature6 grid-feature" data-aos="fade-left" data-aos-duration="1000">
                     <img src="src/assets/feature6.svg" alt="feature-img">
-                    <h2>Five second tests</h2>
-                    <p>Test comprehensibility by<br>measuring first impressions.</p>
-                    <button>Learn more <span><i class="fa fa-arrow-right"></i></span></button>
+                    <h2>No Time Constraints</h2>
+                    <p>Breaking Free from Time Constraints<br>Unlimited Access to E-Library</p>
+                    <!-- <button>Learn more <span><i class="fa fa-arrow-right"></i></span></button> -->
                 </div>
             </div>
         </div>
@@ -275,25 +357,26 @@
     <div id="images-example">
         <div class="example-cover">
             <div class="example-header">
-                <h1>One platform, endless possibilities</h1>           
+                <!-- <h1>One platform, endless possibilities</h1>            -->
+                <h1>Accessible Anytime, Anywhere</h1>
                 <!-- <button>See more examples <span><i class="fa fa-arrow-right"></i></span></button> -->
             </div>
             <div class="examples-images">
                 <div class="image-box1 image-box">
-                    <img src="src/assets/img1.jpg" alt="images">
+                    <img src="src/assets/img1-min.webp" alt="images">
                     <h2>A service that provides "new books every day" for free without a subscription</h2>
                 </div>
                 <div class="image-box2 image-box">
-                    <img src="src/assets/img2.jpg" alt="images" class="imgfit">
+                    <img src="src/assets/img2-min.webp" alt="images" class="imgfit">
                     <h2>It is a great way to make learning more engaging and interactive</h2>
                 </div>
                 <div class="image-box3 image-box">
-                    <img src="src/assets/img3.jpg" alt="images" class="imgfit">
-                    <h2>Is my website's intended audience clear?</h2>
+                    <img src="src/assets/img3-min.webp" alt="images" class="imgfit">
+                    <h2>Digital collection of books and other materials that can be accessed online.</h2>
                 </div>
                 <div class="image-box4 image-box">
-                    <img src="src/assets/img4.jpg" alt="images" class="imgfit">
-                    <h2>Do visitors undestand what a page is about?</h2>
+                    <img src="./src/assets/img44.jpg" alt="images" class="imgfit">
+                    <h2>Books, Study notes question papers and many more</h2>
                 </div>
             </div>
         </div>
@@ -308,28 +391,27 @@
                 <h1>What our users are saying</h1>
             </div>
             <div class="testi">
-                <div class="grid1 grid">
-                    <!-- “ ”) in English? -->
+                <div class="grid1 grid" data-aos="fade-up" data-aos-duration="1000">
                     <h2>"As a busy college student, the library website has been a lifesaver for me. I can easily search for and reserve books, as well as access online resources for research, I can study efficiently without having to physically go to the library all the time."</h2>
                     <h3>Emily</h3>
                 </div>
-                <div class="grid2 grid">
+                <div class="grid2 grid" data-aos="fade-down" data-aos-duration="1000">
                     <h2>"The library website has made it possible for me to access a wide variety of books and other resources from the comfort of my own home. It's been a great way for me to continue learning and expanding my knowledge, even with a busy schedule."</h2>
                     <h3>Sarah</h3>
                 </div>
-                <div class="grid3 grid">
+                <div class="grid3 grid" data-aos="fade-up" data-aos-duration="1000">
                     <h2>"I've always loved visiting the library to browse the shelves and find new books to read. However, the pandemic made it difficult for me to go out as much as I used to. The library website has been a fantastic resource for me to continue accessing new books and materials."</h2>
                     <h3>John</h3>
                 </div>
-                <div class="grid4 grid">
+                <div class="grid4 grid" data-aos="fade-down" data-aos-duration="1000">
                     <h2>"As a high school student, I often have to complete assignments and projects that require me to access certain resources or materials. The library website has made it so easy for me to find and access the resources I need."</h2>
                     <h3>Rachel</h3>
                 </div>
-                <div class="grid5 grid">
+                <div class="grid5 grid" data-aos="fade-up" data-aos-duration="1000">
                     <h2>"The website is well-organized and easy to navigate, and I've been able to find exactly what I'm looking for every time. It's been a great resource for me, and I'm grateful to have it available."</h2>
                     <h3>Kyle</h3>
                 </div>
-                <div class="grid6 grid">
+                <div class="grid6 grid" data-aos="fade-down" data-aos-duration="1000">
                     <h2>"As a busy professional, I don't always have time to visit the library in person. The library website has made it possible for me to access books, resources, and materials from my office or on the go."</h2>
                     <h3>Jessica</h3>
                 </div>
@@ -429,6 +511,12 @@
                 </div>
             </div>
     </footer>
-    <script src="src/script.js" type="text/javascript"></script>
+    <script src="./src/scripts/index.js" defer type="text/javascript"></script>
+    <script src="./src/scripts/common.js" defer type="text/javascript"></script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
